@@ -87,7 +87,9 @@ Para trabajar en este proyecto, es necesario tener **Docker**, **PHP** y **Compo
     Dentro del directorio del proyecto Laravel, ejecuta los siguientes comandos para crear las tablas en la base de datos y cargar los datos de ejemplo:
     
     ```bash
-    php artisan migrate php artisan db:seed
+    php artisan migrate
+    
+    php artisan db:seed
     ```
     
     
