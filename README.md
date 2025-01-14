@@ -10,59 +10,64 @@ Para trabajar en este proyecto, es necesario tener **Docker**, **PHP** y **Compo
     
     Dirígete al directorio donde se encuentra el proyecto:
     
-    bash
+    ```bash
+    cd /ud3_ejercicios/ud3-laravel/laravel/
+    ```
     
-    Copiar código
-    
-    `cd /ud3_ejercicios/ud3-laravel/laravel/`
+
     
 2. **Instalar las Dependencias**
     
     Instala las dependencias del proyecto utilizando Composer:
     
-    bash
+    ```bash
+    composer install
+    ```
     
-    Copiar código
     
-    `composer install`
     
 3. **Configurar el Archivo `.env`**
     
     Copia el archivo de ejemplo `.env.example` y renómbralo como `.env`. Luego, modifica los valores dentro del archivo `.env` para que se ajusten a tu configuración:
     
-    bash
-    
-    Copiar código
-    
-    `copy .env.example .env`
+    ```bash
+    copy .env.example .env
+    ```
+
     
     Abre el archivo `.env` y actualiza las siguientes variables:
     
-    env
     
-    Copiar código
+    ```bash
+     DB_CONNECTION=mariadb
+     DB_HOST=127.0.0.1
+     DB_PORT=3306
+     DB_DATABASE=gestion_notas
+     DB_USERNAME=root
+     DB_PASSWORD=pepe
+    ```
     
-    `DB_CONNECTION=mariadb DB_HOST=127.0.0.1 DB_PORT=3306 DB_DATABASE=gestion_notas DB_USERNAME=root DB_PASSWORD=pepe`
+    
     
 4. **Levantar el Contenedor de MariaDB**
     
     Para levantar el contenedor de MariaDB, ejecuta el siguiente comando:
     
-    bash
+    ```bash
+    docker run --name mariadb-server -d -p 3306:3306 mariadb-server
+    ```
     
-    Copiar código
     
-    `docker run --name mariadb-server -d -p 3306:3306 mariadb-server`
     
 5. **Acceder a la Base de Datos MariaDB**
     
     Una vez que el contenedor esté en funcionamiento, puedes acceder a la base de datos MariaDB con el siguiente comando:
     
-    bash
+    ```bash
+    docker exec -it mariadb-server mariadb -u root -p
+    ```
     
-    Copiar código
-    
-    `docker exec -it mariadb-server mariadb -u root -p`
+  
     
     La contraseña que se solicita es `pepe`.
     
@@ -70,21 +75,21 @@ Para trabajar en este proyecto, es necesario tener **Docker**, **PHP** y **Compo
     
     Al acceder a MariaDB, crea la base de datos ejecutando el siguiente comando:
     
-    sql
+    ```bash
+    create database gestion_notas; exit
+    ```
     
-    Copiar código
-    
-    `create database gestion_notas; exit`
+ 
     
 7. **Crear las Tablas y Cargar Datos de Ejemplo**
     
     Dentro del directorio del proyecto Laravel, ejecuta los siguientes comandos para crear las tablas en la base de datos y cargar los datos de ejemplo:
     
-    bash
+    ```bash
+    php artisan migrate php artisan db:seed
+    ```
     
-    Copiar código
     
-    `php artisan migrate php artisan db:seed`
     
 8. **Probar la API con Postman**
     
