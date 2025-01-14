@@ -76,7 +76,8 @@ Para trabajar en este proyecto, es necesario tener **Docker**, **PHP** y **Compo
     Al acceder a MariaDB, crea la base de datos ejecutando el siguiente comando:
     
     ```bash
-    create database gestion_notas; exit
+    create database gestion_notas;
+    exit
     ```
     
  
